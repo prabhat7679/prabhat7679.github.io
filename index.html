@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-My-First-Blog-Post" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/16/My-First-Blog-Post/" class="article-date">
+  <time class="dt-published" datetime="2023-06-16T11:09:24.000Z" itemprop="datePublished">2023-06-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/06/16/My-First-Blog-Post/">Blog Post about Path.join() and Path.resolve()</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>When working with file and directory paths in Node.js, it’s essential to handle them in a platform-independent manner. The path module in Node.js provides two useful methods, <strong>path.join()</strong> and <strong>path.resolve()</strong>, that can simplify and manipulate paths. In this blog post, we will explore these methods and learn how to use them effectively.</p>
+<h1 id="Join"><a href="#Join" class="headerlink" title="Join()"></a>Join()</h1><p>In JavaScript, the join() method is used to join the elements of an array into a single string. It concatenates the array elements, converts them to strings if necessary, and separates them with a specified separator. The resulting string is then returned by the join() method.</p>
+<h2 id="Join-Syntax"><a href="#Join-Syntax" class="headerlink" title="Join Syntax"></a>Join Syntax</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.join([...paths])</span><br></pre></td></tr></table></figure>
+<h2 id="Join-Example"><a href="#Join-Example" class="headerlink" title="Join Example"></a>Join Example</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">onst path = require(&#x27;path&#x27;);</span><br><span class="line"></span><br><span class="line">// Example : Using path.join()</span><br><span class="line">const folderPath = &#x27;/home/user&#x27;;</span><br><span class="line">const filePath = &#x27;documents/file.txt&#x27;;</span><br><span class="line"></span><br><span class="line">const fullPath = path.join(folderPath, filePath);</span><br><span class="line">console.log(fullPath);</span><br><span class="line">// Output: /home/user/documents/file.txt</span><br><span class="line"></span><br><span class="line">const fullPath = path.join(path1,path2,path3,fileName);</span><br><span class="line"></span><br><span class="line">console.log(fullPath);</span><br><span class="line">//  output : /parent/child/grandChild/index.js</span><br></pre></td></tr></table></figure>
+<p>In this example, <strong>path.join()</strong> is used to concatenate the <strong>folderPath</strong> and <strong>filePath</strong>, resulting in the full path <strong>&#x2F;home&#x2F;user&#x2F;documents&#x2F;file.txt</strong>. It combines the two path segments without resolving the resulting path to an absolute path.</p>
+<h1 id="Resolve"><a href="#Resolve" class="headerlink" title="Resolve()"></a>Resolve()</h1><p>The path.resolve  is a method in Node.js that is used to resolve a sequence of path segments into an absolute path. It works by taking one or more path segments as input and resolving them into an absolute path, based on the current working directory of the Node.js process.<br>The syntax for path.resolve is as follows:</p>
+<h2 id="Resolve-Syntax"><a href="#Resolve-Syntax" class="headerlink" title="Resolve Syntax"></a>Resolve Syntax</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.resolve([...paths])</span><br></pre></td></tr></table></figure>
+
+<h2 id="Resolve-Example"><a href="#Resolve-Example" class="headerlink" title="Resolve Example"></a>Resolve Example</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// Example : Using path.resolve()</span><br><span class="line">const currentWorkingDir = &#x27;/home/user/project&#x27;;</span><br><span class="line">const relativePath = &#x27;../assets/image.png&#x27;;</span><br><span class="line"></span><br><span class="line">const absolutePath = path.resolve(currentWorkingDir, relativePath);</span><br><span class="line">console.log(absolutePath);</span><br><span class="line">// Output: /home/user/assets/image.png</span><br></pre></td></tr></table></figure>
+<p>In the second example, <strong>path.resolve()</strong> resolves the relativePath based on the currentWorkingDir. The relativePath <strong>‘..&#x2F;assets&#x2F;image.png’</strong> is resolved to the absolute path <strong>‘&#x2F;home&#x2F;user&#x2F;assets&#x2F;image.png’</strong>. <strong>path.resolve()</strong> considers the current working directory (currentWorkingDir) and resolves any relative paths provided (relativePath) to generate the absolute path.</p>
+<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><ul>
+<li><p>path.join is used to join multiple path segments together using the platform-specific separator as a delimiter, and then normalizes the resulting path. It automatically resolves any relative path segments (current and parent directory) and removes redundant separators.</p>
+</li>
+<li><p>path.resolve is used to resolve a sequence of path segments into an absolute path, based on the current working directory of the Node.js process. It also resolves any relative path segments (working and parent directory) and always returns an absolute path, regardless of whether the input path segments are absolute or relative.</p>
+</li>
+<li><p>path.join is used for combining path segments into a single path, while path.resolve is used for resolving a sequence of path segments into an absolute path.</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/16/My-First-Blog-Post/" data-id="cliysqyav0000yak5b5d09rt1" data-title="Blog Post about Path.join() and Path.resolve()" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/16/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2023-06-16T11:02:34.039Z" itemprop="datePublished">2023-06-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/06/16/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/16/hello-world/" data-id="cliysqyay0001yak5crcpdvbi" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/16/My-First-Blog-Post/">Blog Post about Path.join() and Path.resolve()</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/16/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
